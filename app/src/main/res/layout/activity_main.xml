@@ -8,26 +8,51 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="414dp"
-        android:layout_height="153dp"
-        app:srcCompat="@drawable/_58414079_400006875189532_6237987360546022561_n"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:layout_width="440dp"
+        android:layout_height="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_58414079_400006875189532_6237987360546022561_n" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="16dp"
         android:text="Services"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
         android:text="apottmentes"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="164dp"
+        android:layout_height="211dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:srcCompat="@drawable/captura_de_ecr__2022_05_27_121030" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="439dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:srcCompat="@drawable/lifting277471662_654337192530972_276237137863176460_n" />
 
 </android.support.constraint.ConstraintLayout>
