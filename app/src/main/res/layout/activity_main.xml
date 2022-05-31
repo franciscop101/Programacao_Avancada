@@ -69,6 +69,7 @@
             android:layout_marginTop="12dp"
             android:text="Appointments"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/button4"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/button4"
