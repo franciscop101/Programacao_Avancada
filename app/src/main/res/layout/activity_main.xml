@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/_58414079_400006875189532_6237987360546022561_n" />
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/button3"
