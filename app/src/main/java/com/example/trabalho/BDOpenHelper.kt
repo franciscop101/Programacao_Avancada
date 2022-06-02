@@ -17,7 +17,9 @@ class BDOpenHelper (
      * @param db The database.
      */
     override fun onCreate(db: SQLiteDatabase?) {
+        requireNotNull(db)
 
+        TabelaBDClient(db).cria()
     }
 
     /**
