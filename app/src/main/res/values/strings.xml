@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="gel_nails">gel nails</string>
+    <string name="bride_makeup">bride makeup</string>
+    <string name="todo">TODO</string>
+    <string name="appointments">appointments</string>
+    <string name="services_and_price">services_and_price</string>
+    <string name="verniz_gel">verniz_gel</string>
+    <string name="makeup_social">makeup_social</string>
+    <string name="depilacao_rosto">depilacao_rosto</string>
+    <string name="pedicure">pedicure</string>
+    <string name="lifting">lifting</string>
 </resources>
