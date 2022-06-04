@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class BDLivrosOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,null, VERSAO)  {
+class BDOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,null, VERSAO)  {
     /**
      * Called when the database is created for the first time. This is where the
      * creation of tables and the initial population of the tables should happen.
@@ -16,6 +16,7 @@ class BDLivrosOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,nul
 
         TabelaBDClient(db).cria()
         TabelaBDService(db).cria()
+        TabelaBDAppointement(db).cria()
     }
 
     /**
