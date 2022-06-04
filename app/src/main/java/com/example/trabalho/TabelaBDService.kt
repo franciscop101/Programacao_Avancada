@@ -3,9 +3,9 @@ package com.example.trabalho
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
-class TabelaBDService (val db: SQLiteDatabase) {
-    fun cria() {
-        db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+class TabelaBDService (db: SQLiteDatabase) : TabelaBD(db, NOME){
+    override fun cria() {
+        db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$CAMPO_SERVICE_TYPE TEXT NOT NULL, " +
                 "$CAMPO_DURATION TEXT NOT NULL, " +
                 "$CAMPO_APPOINTMENT_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_APPOINTMENT_ID) REFERENCES " +
