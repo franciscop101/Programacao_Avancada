@@ -44,7 +44,7 @@ class BDLivrosOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,nul
 
     }
     companion object {
-        const val NOME = "livros.db"
+        const val NOME = "cliente.db"
         private const val VERSAO = 1
     }
 }
