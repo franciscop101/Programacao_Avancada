@@ -20,6 +20,7 @@ class BDOpenHelper (
         requireNotNull(db)
 
         TabelaBDClient(db).cria()
+        TabelaBDService(db).cria()
     }
 
     /**

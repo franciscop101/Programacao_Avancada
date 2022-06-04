@@ -8,8 +8,8 @@ class TabelaBDClient (val db: SQLiteDatabase) {
     fun cria() {
         db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " $CAMPO_NOME TEXT NOT NULL,"+
-                " $CAMPO_DATE_BIRTH DATE NOT NULL,"+
-                " $CAMPO_PHONE_NUMBER NUMBER NOT NULL,"+
+                " $CAMPO_DATE_BIRTH TEXT NOT NULL,"+
+                " $CAMPO_PHONE_NUMBER TEXT NOT NULL,"+
                 " $CAMPO_EMAIL TEXT NOT NULL)")
     }
 
