@@ -9,7 +9,7 @@ class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 "$CAMPO_DATE TEXT NOT NULL, " +
                 "$CAMPO_TIME TEXT NOT NULL, " +
                 "$CAMPO_CLIENT_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_CLIENT_ID) REFERENCES " +
-                "${TabelaBDAppointement.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
+                "${TabelaBDClient.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
     }
 
     companion object {
