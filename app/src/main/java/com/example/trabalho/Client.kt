@@ -2,7 +2,7 @@ package com.example.trabalho
 
 
 import android.content.ContentValues
-import android.provider.BaseColumns
+//import android.provider.BaseColumns
 
 
 data class Client(var id: Long, var nome: String) {

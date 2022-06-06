@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+/**import androidx.navigation.fragment.findNavController*/
 import com.example.trabalho.databinding.FragmentFirstBinding
 
 /**
@@ -29,11 +29,12 @@ class FirstFragment : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /**override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-    }
+
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()
