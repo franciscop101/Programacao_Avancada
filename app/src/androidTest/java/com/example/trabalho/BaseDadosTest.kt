@@ -1,5 +1,6 @@
 package com.example.trabalho
 
+import android.database.sqlite.SQLiteDatabase
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 
@@ -19,6 +20,11 @@ class BaseDadosTest {
     fun appContext() =
         InstrumentationRegistry.getInstrumentation().targetContext
 
+    private fun getWritableDatabase(): SQLiteDatabase {
+        val openHelper = BDOpenHelper(appContext())
+        return openHelper.writableDatabase
+    }
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -32,5 +38,28 @@ class BaseDadosTest {
         assertTrue(db.isOpen)
 
         db.close()
+    }
+
+    /**
+     @Test
+     fun consegueInserirCategoria() {
+        val db = getWritableDatabase()
+
+        val client = Client("...")
+
+        TabelaBDClient(db).insert(client.toContentValues())
+
+        db.close()
+    }*/
+
+    @Test
+    fun consegueInserirCategoria() {
+        val db = getWritableDatabase()
+
+        val services = Services("nails")
+
+        TabelaBDService(db).insert(services.toContentValues())
+
+    db.close()
     }
 }
