@@ -1,6 +1,7 @@
 package com.example.trabalho
 
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 
@@ -25,6 +26,21 @@ class BaseDadosTest {
         return openHelper.writableDatabase
     }
 
+    private fun insereClient(db: SQLiteDatabase, client: Client) {
+        client.id = TabelaBDClient(db).insert(client.toContentValues())
+        assertNotEquals(2, client.id)
+    }
+
+    private fun insereService(db: SQLiteDatabase, services: Services) {
+        services.id = TabelaBDService(db).insert(services.toContentValues())
+        assertNotEquals(2, services.id)
+    }
+
+    private fun insereAppointment(db: SQLiteDatabase, appointment: Appointment) {
+        appointment.id = TabelaBDAppointement(db).insert(appointment.toContentValues())
+        assertNotEquals(2, appointment.id)
+    }
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -40,26 +56,42 @@ class BaseDadosTest {
         db.close()
     }
 
-    /**
-     @Test
-     fun consegueInserirCategoria() {
-        val db = getWritableDatabase()
-
-        val client = Client("...")
-
-        TabelaBDClient(db).insert(client.toContentValues())
-
-        db.close()
-    }*/
 
     @Test
-    fun consegueInserirCategoria() {
+    fun consegueInserirService() {
         val db = getWritableDatabase()
 
-        val services = Services("nails")
+        val client = Client("Teste3","14-12-2022","935554378","Teste3")
+        insereClient(db, client)
 
-        TabelaBDService(db).insert(services.toContentValues())
+        val appointment = Appointment(21062022,"13 min",client.id)
+        insereAppointment(db, appointment)
 
-    db.close()
+        val services = Services("ServiceTeste","50 min",appointment.id)
+        insereService(db, services)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirClient() {
+        val db = getWritableDatabase()
+
+        insereClient(db, Client("Teste","12-12-2022","935654478","Teste"))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirAppointment() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste2","13-12-2022","935654378","Teste2")
+        insereClient(db, client)
+
+        val appointment = Appointment(20062022,"12 min",client.id)
+        insereAppointment(db, appointment)
+
+        db.close()
     }
 }

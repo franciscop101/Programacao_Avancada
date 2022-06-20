@@ -8,8 +8,7 @@ class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
         db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$CAMPO_DATE TEXT NOT NULL, " +
                 "$CAMPO_TIME TEXT NOT NULL, " +
-                "$CAMPO_CLIENT_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_CLIENT_ID) REFERENCES " +
-                "${TabelaBDClient.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
+                "$CAMPO_CLIENT_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_CLIENT_ID) REFERENCES ${TabelaBDClient.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT )")
     }
 
     companion object {
@@ -17,5 +16,11 @@ class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_DATE = "date"
         const val CAMPO_TIME = "time"
         const val CAMPO_CLIENT_ID = "clientId"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
+            CAMPO_DATE,
+            CAMPO_TIME,
+            CAMPO_CLIENT_ID
+        )
     }
 }
