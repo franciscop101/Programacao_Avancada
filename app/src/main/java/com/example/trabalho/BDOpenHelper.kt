@@ -14,9 +14,15 @@ class BDOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,null, VER
     override fun onCreate(db: SQLiteDatabase?) {
         requireNotNull(db)
 
+
         TabelaBDClient(db).cria()
-        TabelaBDService(db).cria()
+
         TabelaBDAppointement(db).cria()
+
+        TabelaBDService(db).cria()
+
+
+
     }
 
     /**

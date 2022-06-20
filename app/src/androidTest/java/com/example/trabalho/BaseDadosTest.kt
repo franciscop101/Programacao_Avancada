@@ -73,6 +73,7 @@ class BaseDadosTest {
         db.close()
     }
 
+
     @Test
     fun consegueInserirClient() {
         val db = getWritableDatabase()
@@ -93,5 +94,84 @@ class BaseDadosTest {
         insereAppointment(db, appointment)
 
         db.close()
+    }
+
+    @Test
+    fun consegueAlterarClient() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste4","15-12-2022","935354378","Teste4")
+        insereClient(db, client)
+
+        client.nome = "Joao"
+        client.date_birthday = "30-01-2001"
+        client.phone_number = "935486426"
+        client.email = "joao@gmail.com"
+
+        val  registosAlterados = TabelaBDClient(db).update(
+            client.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${client.id}")
+        )
+
+        assertNotEquals( 2, registosAlterados)
+
+        db.close()
+
+    }
+
+    @Test
+    fun consegueAlterarAppointment() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste5","16-12-2022","935674778","Teste5")
+        insereClient(db, client)
+
+        val appointment = Appointment(20072022,"32 min",client.id)
+        insereAppointment(db, appointment)
+
+        appointment.date = 11012023
+        appointment.time = "50 min"
+
+
+        val  registosAlterados = TabelaBDAppointement(db).update(
+            appointment.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${appointment.id}")
+        )
+
+        assertNotEquals( 2, registosAlterados)
+
+        db.close()
+
+    }
+
+    @Test
+    fun consegueAlterarService() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste6","14-11-2022","935555578","Teste6")
+        insereClient(db, client)
+
+        val appointment = Appointment(27062022,"32 min",client.id)
+        insereAppointment(db, appointment)
+
+        val services = Services("ServiceTeste2","55 min",appointment.id)
+        insereService(db, services)
+
+        services.service_type = "unhas"
+        services.duration = "30 min"
+
+
+        val  registosAlterados = TabelaBDService(db).update(
+            services.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${services.id}")
+        )
+
+        assertNotEquals( 2, registosAlterados)
+
+        db.close()
+
     }
 }
