@@ -174,4 +174,69 @@ class BaseDadosTest {
         db.close()
 
     }
+
+    @Test
+    fun consegueEliminarClient() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste7","14-02-2023","925565578","Teste7")
+        insereClient(db, client)
+
+
+        val  registosEliminados = TabelaBDClient(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${client.id}")
+        )
+
+        assertNotEquals( 2, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarAppointment() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste8","16-11-2022","935643778","Teste8")
+        insereClient(db, client)
+
+        val appointment = Appointment(20072022,"35 min",client.id)
+        insereAppointment(db, appointment)
+
+
+        val  registosEliminados = TabelaBDAppointement(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${appointment.id}")
+        )
+
+        assertNotEquals( 2, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarService() {
+        val db = getWritableDatabase()
+
+
+        val client = Client("Teste9","13-01-2022","937855578","Teste9")
+        insereClient(db, client)
+
+        val appointment = Appointment(13072022,"40 min",client.id)
+        insereAppointment(db, appointment)
+
+        val services = Services("ServiceTeste3","56 min",appointment.id)
+        insereService(db, services)
+
+
+        val  registosEliminados = TabelaBDService(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${services.id}")
+        )
+
+        assertNotEquals( 2, registosEliminados)
+
+        db.close()
+    }
+
 }
