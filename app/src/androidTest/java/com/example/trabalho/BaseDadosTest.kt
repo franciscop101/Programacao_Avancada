@@ -239,4 +239,95 @@ class BaseDadosTest {
         db.close()
     }
 
+    @Test
+    fun consegueLerClient() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste13","13-04-2022","931374778","Teste13")
+        insereClient(db, client)
+
+        val  cursor = TabelaBDClient(db).query(
+            TabelaBDClient.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${client.id}"),
+            null,
+            null,
+            null
+
+        )
+
+        assertEquals( 1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val clientBD = Client.fromCursor(cursor)
+
+        assertEquals(client, clientBD)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerAppointement() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste11","16-04-2022","931274778","Teste11")
+        insereClient(db, client)
+
+        val appointment = Appointment(23032022,"65 min",client.id)
+        insereAppointment(db, appointment)
+
+        val  cursor = TabelaBDAppointement(db).query(
+            TabelaBDAppointement.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${appointment.id}"),
+            null,
+            null,
+            null
+
+        )
+
+        assertEquals( 1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val appointmentBD = Appointment.fromCursor(cursor)
+
+        assertEquals(appointment, appointmentBD)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerService() {
+        val db = getWritableDatabase()
+
+        val client = Client("Teste12","12-01-2022","931255578","Teste12")
+        insereClient(db, client)
+
+        val appointment = Appointment(12072022,"12 min",client.id)
+        insereAppointment(db, appointment)
+
+        val services = Services("ServiceTeste4","12 min",appointment.id)
+        insereService(db, services)
+
+        val  cursor = TabelaBDService(db).query(
+            TabelaBDService.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${services.id}"),
+            null,
+            null,
+            null
+
+        )
+
+        assertEquals( 1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val servicesBD = Services.fromCursor(cursor)
+
+        assertEquals(services, servicesBD)
+
+        db.close()
+    }
+
+
 }
