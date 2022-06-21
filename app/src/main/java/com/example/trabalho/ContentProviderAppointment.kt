@@ -139,9 +139,14 @@ class ContentProviderAppointment : ContentProvider() {
      * @param uri the URI to query.
      * @return a MIME type string, or `null` if there is no type.
      */
-    override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
-    }
+    override fun getType(uri: Uri): String? =
+        when (getUriMatcher().match(uri)) {
+            URI_SERVICES -> "$MULTIPLOS_REGISTOS/${TabelaBDService.NOME}"
+            URI_CLIENTS -> "$MULTIPLOS_REGISTOS/${TabelaBDClient.NOME}"
+            URI_SERVICE_ESPECIFICO -> "$UNICO_REGISTO/${TabelaBDService.NOME}"
+            URI_CLIENT_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDClient.NOME}"
+            else -> null
+        }
 
     /**
      * Implement this to handle requests to insert a new row. As a courtesy,
@@ -217,6 +222,9 @@ class ContentProviderAppointment : ContentProvider() {
         const val URI_CLIENT_ESPECIFICA = 101
         const val URI_SERVICES = 200
         const val URI_SERVICE_ESPECIFICO = 201
+
+        const val UNICO_REGISTO = "vnd.android.cursor.item"
+        const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
