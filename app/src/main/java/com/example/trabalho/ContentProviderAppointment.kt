@@ -3,9 +3,12 @@ package com.example.trabalho
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
 
 class ContentProviderAppointment : ContentProvider() {
+    var db : BDOpenHelper? = null
+
     /**
      * Implement this to initialize your content provider on startup.
      * This method is called for all registered content providers on the
@@ -34,7 +37,9 @@ class ContentProviderAppointment : ContentProvider() {
      * @return true if the provider was successfully loaded, false otherwise
      */
     override fun onCreate(): Boolean {
-        TODO("Not yet implemented")
+        db = BDOpenHelper(context)
+
+        return true
     }
 
     /**
