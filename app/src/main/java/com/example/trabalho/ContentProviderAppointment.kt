@@ -2,6 +2,7 @@ package com.example.trabalho
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
@@ -207,5 +208,25 @@ class ContentProviderAppointment : ContentProvider() {
         selectionArgs: Array<out String>?
     ): Int {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        const val AUTHORITY = "com.example.trabalho"
+
+        const val URI_CLIENTS = 100
+        const val URI_CLIENT_ESPECIFICA = 101
+        const val URI_SERVICES = 200
+        const val URI_SERVICE_ESPECIFICO = 201
+
+        fun getUriMatcher() : UriMatcher {
+            var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+
+            uriMatcher.addURI(AUTHORITY, TabelaBDClient.NOME, URI_CLIENTS)
+            uriMatcher.addURI(AUTHORITY, "${TabelaBDClient.NOME}/#", URI_CLIENT_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, TabelaBDService.NOME, URI_SERVICES)
+            uriMatcher.addURI(AUTHORITY, "${TabelaBDService.NOME}/#", URI_SERVICE_ESPECIFICO)
+
+            return uriMatcher
+        }
     }
 }
