@@ -4,11 +4,11 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
-import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
+import android.provider.BaseColumns
 
 class ContentProviderAppointment : ContentProvider() {
-    var db : BDOpenHelper? = null
+    var dbOpenHelper : BDOpenHelper? = null
 
     /**
      * Implement this to initialize your content provider on startup.
@@ -38,7 +38,7 @@ class ContentProviderAppointment : ContentProvider() {
      * @return true if the provider was successfully loaded, false otherwise
      */
     override fun onCreate(): Boolean {
-        db = BDOpenHelper(context)
+        dbOpenHelper = BDOpenHelper(context)
 
         return true
     }
@@ -117,7 +117,26 @@ class ContentProviderAppointment : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val db = dbOpenHelper!!.readableDatabase
+
+        requireNotNull(projection)
+        val colunas = projection as Array<String>
+
+        val argsSeleccao = selectionArgs as Array<String>?
+
+        val id = uri.lastPathSegment
+
+        val cursor = when (getUriMatcher().match(uri)) {
+            URI_SERVICES -> TabelaBDService(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_CLIENTS -> TabelaBDClient(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_SERVICE_ESPECIFICO -> TabelaBDService(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_CLIENT_ESPECIFICA -> TabelaBDClient(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            else -> null
+        }
+
+        db.close()
+
+        return cursor
     }
 
     /**
