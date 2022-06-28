@@ -109,4 +109,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="nome">Nome</string>
+    <string name="telemovel">Telemovel</string>
+    <string name="horas">Horas</string>
+    <string name="servico">Servico</string>
+    <string name="marcar">Marcar</string>
+    <string name="dia">Dia</string>
 </resources>
