@@ -115,11 +115,8 @@
     <string name="servico">Servico</string>
     <string name="marcar">Marcar</string>
     <string name="dia">Dia</string>
-    <string name="Bride_Makeup">Bride Makeup</string>
-    <string name="Makeup_Social">Makeup Social</string>
-    <string name="Verniz_Gel">Verniz Gel</string>
-    <string name="Gel_Nails">Gel Nails</string>
-    <string name="Lifting">Lifting</string>
-    <string name="Face_Depilation">Face Depilation</string>
-    <string name="Pedicure">Pedicure</string>
+    <string name="see_appointments">SEE APPOINTMENTS</string>
+    <string name="face_depilation">face depilation</string>
+    <string name="verniz_gel_">verniz gel</string>
+    <string name="makeup_social_">makeup social</string>
 </resources>

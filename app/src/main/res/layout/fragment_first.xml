@@ -12,18 +12,6 @@
         android:background="#ADC86473">
 
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Gel_Nails"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/button"
-            tools:ignore="TextContrastCheck" />
-
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
@@ -37,113 +25,69 @@
             app:srcCompat="@drawable/logo"
             tools:ignore="ImageContrastCheck" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <Button
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/appointments"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            tools:ignore="TextContrastCheck" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.163"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/see_appointments"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="25dp"
-            android:foreground="@drawable/fda455af_3334_44f7_9e79_c25aa45236d2"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="40dp"
             android:importantForAccessibility="no"
             android:text="@string/gel_nails"
-            app:layout_constraintEnd_toStartOf="@+id/button6"
-            app:layout_constraintHorizontal_bias="0.681"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gel_nails"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="48dp"
-            android:foreground="@drawable/_makeup_bride"
             android:text="@string/bride_makeup"
             app:layout_constraintEnd_toEndOf="@+id/button"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/button"
             app:layout_constraintTop_toBottomOf="@+id/button"
-            tools:ignore="TextContrastCheck" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="48dp"
-            android:foreground="@drawable/_84254602_270404021915263_3327401472795931135_n"
-            android:text="@string/pedicure"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintStart_toStartOf="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="40dp"
-            android:foreground="@drawable/_84430774_1458083611313149_4182818990995522063_n"
-            android:text="@string/verniz_gel"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:ignore="TextContrastCheck" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="48dp"
-            android:foreground="@drawable/_82601078_167471685302730_4611848679872968125_n"
-            android:text="@string/makeup_social"
-            app:layout_constraintEnd_toEndOf="@+id/button6"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button6"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="48dp"
-            android:foreground="@drawable/_84199226_748085146194442_1175272406738523106_n"
-            android:text="@string/depilacao_rosto"
-            app:layout_constraintEnd_toEndOf="@+id/button7"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button7"
-            app:layout_constraintTop_toBottomOf="@+id/button7"
-            tools:ignore="TextContrastCheck" />
-
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="330dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="48dp"
-            android:foreground="@drawable/_lifting"
-            android:text="@string/lifting"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button8"
-            app:layout_constraintStart_toStartOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button8" />
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Bride_Makeup"
+            android:text="@string/bride_makeup"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/button2"
@@ -151,11 +95,47 @@
             app:layout_constraintTop_toBottomOf="@+id/button2"
             tools:ignore="TextContrastCheck" />
 
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/pedicure"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pedicure"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/button5"
+            app:layout_constraintStart_toStartOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/verniz_gel"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Verniz_Gel"
+            android:text="@string/verniz_gel_"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/button6"
@@ -163,14 +143,38 @@
             app:layout_constraintTop_toBottomOf="@+id/button6"
             tools:ignore="TextContrastCheck,TextContrastCheck" />
 
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/makeup_social"
+            app:layout_constraintEnd_toEndOf="@+id/button6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button6"
+            app:layout_constraintTop_toBottomOf="@+id/button6"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Makeup_Social"
+            android:text="@string/makeup_social_"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/button7"
+            app:layout_constraintStart_toStartOf="@+id/button7"
+            app:layout_constraintTop_toBottomOf="@+id/button7"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/depilacao_rosto"
+            app:layout_constraintEnd_toEndOf="@+id/button7"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/button7"
             app:layout_constraintTop_toBottomOf="@+id/button7"
             tools:ignore="TextContrastCheck" />
@@ -179,31 +183,36 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Face_Depilation"
+            android:text="@string/face_depilation"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/button8"
             app:layout_constraintStart_toStartOf="@+id/button8"
-            app:layout_constraintTop_toBottomOf="@+id/button8" />
+            app:layout_constraintTop_toBottomOf="@+id/button8"
+            tools:ignore="TextContrastCheck" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Pedicure"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/button5"
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="330dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="48dp"
+            android:text="@string/lifting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button8"
             app:layout_constraintStart_toStartOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button5" />
+            app:layout_constraintTop_toBottomOf="@+id/button8"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Lifting"
+            android:text="@string/lifting"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/button9"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="@+id/button9"
             app:layout_constraintTop_toBottomOf="@+id/button9" />
 
