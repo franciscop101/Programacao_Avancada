@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.trabalho.databinding.FragmentSecondBinding
@@ -35,9 +36,7 @@ class SecondFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.buttonEnviar.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_APPOINTMENTS, null, this)
     }
 
     override fun onDestroyView() {
@@ -55,9 +54,15 @@ class SecondFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      * @param args Any arguments supplied by the caller.
      * @return Return a new Loader instance that is ready to start loading.
      */
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
-    }
+     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
+        CursorLoader(
+            requireContext(),
+            ContentProviderAppointment.ENDERECO_APPOINTEMTS,
+            TabelaBDAppointement.TODAS_COLUNAS,
+            null,
+            null,
+            "${TabelaBDAppointement.CAMPO_CLIENT_ID}"
+        )
 
     /**
      * Called when a previously created loader has finished its load.  Note
@@ -118,5 +123,9 @@ class SecondFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        const val ID_LOADER_APPOINTMENTS = 0
     }
 }

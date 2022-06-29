@@ -275,16 +275,19 @@ class ContentProviderAppointment : ContentProvider() {
     }
 
     companion object {
-        const val AUTHORITY = "com.example.trabalho"
+        private const val AUTHORITY = "com.example.trabalho"
 
-        const val URI_CLIENTS = 100
-        const val URI_CLIENT_ESPECIFICA = 101
-        const val URI_SERVICES = 200
-        const val URI_SERVICE_ESPECIFICO = 201
+        private const val URI_CLIENTS = 100
+        private const val URI_CLIENT_ESPECIFICA = 101
+        private const val URI_SERVICES = 200
+        private const val URI_SERVICE_ESPECIFICO = 201
 
         const val UNICO_REGISTO = "vnd.android.cursor.item"
         const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
+        val ENDERECO_APPOINTEMTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDAppointement.NOME)
+        val ENDERECO_CLIENTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDClient.NOME)
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
