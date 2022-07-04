@@ -20,6 +20,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/logo"
+                tools:ignore="ImageContrastCheck" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -28,7 +37,7 @@
                     android:id="@+id/editTextNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/nome"
+                    android:hint="@string/name"
                     android:inputType="textPersonName"
                     tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
@@ -40,7 +49,7 @@
                         android:id="@+id/editTextTelemovel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/telemovel"
+                        android:hint="@string/phone"
                         android:inputType="phone"
                         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
@@ -53,7 +62,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:hint="@string/servico"
+                            android:hint="@string/service"
+                            android:inputType="textPersonName"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
                             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -65,8 +77,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
 
-                                android:hint="@string/horas"
-
+                                android:hint="@string/hours"
+                                android:inputType="datetime"
                                 tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
 
@@ -77,7 +89,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:hint="@string/dia"
+                            android:text="@string/day"
+                            android:textSize="18sp"
                             tools:ignore="TextContrastCheck" />
 
                         <CalendarView
@@ -89,11 +102,24 @@
                             android:id="@+id/buttonEnviar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/marcar" />
+                            android:backgroundTint="#00F3F3F3"
+                            android:text="@string/marcar"
+                            tools:ignore="TextContrastCheck" />
+
+                        <Button
+                            android:id="@+id/buttonEnviar2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#00FFFFFF"
+                            android:text="@string/back"
+                            tools:ignore="TextContrastCheck" />
+
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -119,4 +119,11 @@
     <string name="face_depilation">face depilation</string>
     <string name="verniz_gel_">verniz gel</string>
     <string name="makeup_social_">makeup social</string>
+    <string name="name">name</string>
+    <string name="service">service</string>
+    <string name="hours">hours</string>
+    <string name="phone">phone</string>
+    <string name="day">day</string>
+    <string name="back">back</string>
+    <string name="Name">Name</string>
 </resources>

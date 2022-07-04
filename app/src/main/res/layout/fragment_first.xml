@@ -30,22 +30,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="#00C86473"
             android:text="@string/appointments"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintHorizontal_bias="0.163"
+            app:layout_constraintHorizontal_bias="0.164"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="#00C86473"
             android:text="@string/see_appointments"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintHorizontal_bias="0.82"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/button"
