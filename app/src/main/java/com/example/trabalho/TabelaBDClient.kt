@@ -16,10 +16,10 @@ class TabelaBDClient (db: SQLiteDatabase) : TabelaBD(db, NOME) {
     companion object {
         const val NOME = "client"
         const val CAMPO_NOME = "nome"
-
+        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_PHONE_NUMBER ="phone_number"
         const val CAMPO_EMAIL = "email"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_PHONE_NUMBER, CAMPO_EMAIL)
+        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME, CAMPO_PHONE_NUMBER, CAMPO_EMAIL)
     }
 }

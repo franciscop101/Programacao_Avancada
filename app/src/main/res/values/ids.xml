@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="FragmentEditarServiceToFragmentListaService" type="id" />
+    <item name="textViewId" type="id" />
+    <item name="textViewNameAppontments" type="id" />
+</resources>
