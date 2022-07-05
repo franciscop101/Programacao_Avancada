@@ -217,7 +217,7 @@ class FragmentEditarService : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     private fun alteraService(service_type: String, idAppointment: Long) : Boolean {
-        val service = Services(service_type, Appointment("","",1,1,id = idAppointment))
+        val service = Services(service_type, Appointment("","",1,1, id = idAppointment))
 
         val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${this.service!!.id}")
 
@@ -227,7 +227,7 @@ class FragmentEditarService : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     private fun insereService(service_type: String, idAppointment: Long): Boolean {
-        val service = Services(service_type, Appointment("","",1,1,id = idAppointment))
+        val service = Services(service_type, Appointment("","",1,1, id = idAppointment))
 
         val enderecoServiceInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_APPOINTEMTS, service.toContentValues())
 

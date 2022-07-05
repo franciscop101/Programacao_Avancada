@@ -14,6 +14,18 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_FragmentListaClient"
+            app:destination="@id/FragmentListaClient" />
+        <action
+            android:id="@+id/action_FirstFragment_to_fragmentVerAppointment"
+            app:destination="@id/fragmentVerAppointment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_FragmentListaService"
+            app:destination="@id/FragmentListaService" />
+        <action
+            android:id="@+id/action_FirstFragment_to_FragmentListaAppointment"
+            app:destination="@id/FragmentListaAppointment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -25,4 +37,151 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentVerAppointment"
+        android:name="com.example.trabalho.fragmentVerAppontments"
+        android:label="@string/fragment_ver_appointment"
+        tools:layout="@layout/fragment_ver_appointment">
+
+        <action
+        android:id="@+id/action_SecondFragment_to_FirstFragment"
+        app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentListaClient"
+        android:name="com.example.trabalho.FragmentListaClient"
+        android:label="@string/fragment_lista_client"
+        tools:layout="@layout/fragment_lista_client">
+
+        <action
+        android:id="@+id/action_SecondFragment_to_FirstFragment"
+        app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_FragmentListaClient_to_FragmentEditarClient"
+            app:destination="@id/FragmentEditarClient" />
+        <action
+            android:id="@+id/action_FragmentListaClient_to_FragmentEliminarClient"
+            app:destination="@id/FragmentEliminarClient" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentEditarClient"
+        android:name="com.example.trabalho.FragmentEditarClient"
+        android:label="@string/fragment_editar_client"
+        tools:layout="@layout/fragment_editar_client">
+        <action
+            android:id="@+id/action_FragmentEditarClient_to_FragmentListaClient"
+            app:destination="@id/FragmentListaClient" />
+        <argument
+            android:name="client"
+            app:argType="com.example.trabalho.Client"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentEliminarClient"
+        android:name="com.example.trabalho.FragmentEliminarClient"
+        android:label="@string/fragment_eliminar_client"
+        tools:layout="@layout/fragment_eliminar_client">
+        <action
+            android:id="@+id/action_FragmentEliminarClient_to_FragmentListaClient"
+            app:destination="@id/FragmentListaClient" />
+        <argument
+            android:name="client"
+            app:argType="com.example.trabalho.Client" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentListaService"
+        android:name="com.example.trabalho.FragmentListaService"
+        android:label="@string/fragment_lista_service"
+        tools:layout="@layout/fragment_lista_service">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_FragmentListaService_to_FragmentEditarService"
+            app:destination="@id/FragmentEditarService" />
+
+        <action
+            android:id="@+id/action_FragmentListaService_to_FragmentEliminarService"
+            app:destination="@id/FragmentEliminarService" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FragmentEliminarService"
+        android:name="com.example.trabalho.FragmentEliminarService"
+        android:label="@string/eliminar_service_label"
+        tools:layout="@layout/fragment_eliminar_service">
+        <action
+            android:id="@+id/action_FragmentEliminarService_to_FragmentListaService"
+            app:destination="@id/FragmentListaService" />
+        <argument
+            android:name="service"
+            app:argType="com.example.trabalho.Services" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FragmentListaAppointment"
+        android:name="com.example.trabalho.FragmentListaService"
+        android:label="@string/fragment_lista_service"
+        tools:layout="@layout/fragment_lista_service">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_FragmentListaAppointment_to_FragmentEditarAppointment"
+            app:destination="@id/FragmentEditarAppointment" />
+        <action
+            android:id="@+id/action_FragmentListaAppointment_to_FragmentEliminarAppoitment"
+            app:destination="@id/FragmentEliminarAppoitment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentEditarService"
+        android:name="com.example.trabalho.FragmentEditarService"
+        android:label="@string/fragment_editar_service"
+        tools:layout="@layout/fragment_editar_service">
+        <action
+            android:id="@+id/action_FragmentEditarService_to_FragmentListaService"
+            app:destination="@id/FragmentListaService" />
+        <argument
+            android:name="service"
+            app:argType="com.example.trabalho.service"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentEditarAppointment"
+        android:name="com.example.trabalho.FragmentEditarAppointment"
+        android:label="@string/fragment_editar_appointment"
+        tools:layout="@layout/fragment_editar_appointment">
+        <argument
+            android:name="appointments"
+            app:argType="com.example.trabalho.appointment"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_FragmentEditarAppointment_to_FragmentListaAppointment"
+            app:destination="@id/FragmentListaAppointment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentEliminarAppoitment"
+        android:name="com.example.trabalho.FragmentEliminarAppointment"
+        android:label="@string/eliminar_appointment_label"
+        tools:layout="@layout/fragment_eliminar_appointment">
+
+        <action
+            android:id="@+id/action_FragmentEliminarAppoitment_to_FragmentListaAppointment"
+            app:destination="@id/FragmentListaAppointment" />
+        <argument
+            android:name="appointment"
+            app:argType="com.example.trabalho.Appointment" />
+
+    </fragment>
+
 </navigation>
