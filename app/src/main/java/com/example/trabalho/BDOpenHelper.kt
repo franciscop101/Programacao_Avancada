@@ -16,9 +16,7 @@ class BDOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,null, VER
 
 
         TabelaBDClient(db).cria()
-
         TabelaBDAppointement(db).cria()
-
         TabelaBDService(db).cria()
 
 
