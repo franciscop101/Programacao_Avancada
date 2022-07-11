@@ -36,7 +36,7 @@ class FragmentEliminarClient : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-/*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,7 +52,7 @@ class FragmentEliminarClient : Fragment() {
 
     }
 
- */
+
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {

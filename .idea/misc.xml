@@ -13,20 +13,21 @@
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/content_scrolling.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragmaent3.xml" value="0.3436724565756824" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_client.xml" value="0.1" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_editar_appointment.xml" value="0.2140625" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_editar_appointment.xml" value="0.22" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_editar_client.xml" value="0.25" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_editar_service.xml" value="0.1" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_editar_service.xml" value="0.25" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_eliminar_appointment.xml" value="0.33" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_eliminar_client.xml" value="0.2574074074074074" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_eliminar_service.xml" value="0.275" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_first.xml" value="0.33" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_lista_appointment.xml" value="0.1" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_lista_appointment.xml" value="0.18" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_lista_client.xml" value="0.33" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_lista_service.xml" value="0.17592592592592593" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_second.xml" value="0.33" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/fragment_ver_appointment.xml" value="0.33" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/item_appointment.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/item_appointment.xml" value="0.22" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/item_client.xml" value="0.33" />
-        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/item_service.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/layout/item_service.xml" value="0.25" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/menu/menu_edicao.xml" value="0.22395833333333334" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/menu/menu_eliminar.xml" value="0.2574074074074074" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/Trabalho/app/src/main/res/menu/menu_lista.xml" value="0.16111111111111112" />

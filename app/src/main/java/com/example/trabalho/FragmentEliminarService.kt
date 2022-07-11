@@ -46,7 +46,6 @@ class FragmentEliminarService : Fragment() {
         services = FragmentEliminarServiceArgs.fromBundle(arguments!!).service
 
         binding.textViewTypeService.text = services.service_type
-        binding.textViewAppointment.text = services.appoitment.appointment_name
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -75,7 +74,7 @@ class FragmentEliminarService : Fragment() {
     }
 
     private fun confirmaEliminarService() {
-        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${services.id}")
+        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${services.service_type}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoServices, null, null)
 
         if (registosEliminados != 1) {

@@ -22,14 +22,4 @@
         tools:text="@string/gel_nails" />
 
 
-    <TextView
-        android:id="@+id/textViewAppointment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewTypeService"
-        app:layout_constraintStart_toStartOf="@+id/textViewTypeService"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTypeService"
-        tools:text="@string/gel_nails" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

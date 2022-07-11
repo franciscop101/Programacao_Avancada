@@ -8,7 +8,7 @@ import java.io.Serializable
 data class Appointment(
 
     var appointment_name: String,
-    var time: String,
+    var time: Long,
     var date: Long,
     var client: Client,
     var id: Long = 1
@@ -29,21 +29,22 @@ data class Appointment(
         fun fromCursor(cursor: Cursor): Appointment {
 
             val posId = cursor.getColumnIndex(BaseColumns._ID)
-            val posName = cursor.getColumnIndex(TabelaBDAppointement.CAMPO_NAME)
             val posDate = cursor.getColumnIndex(TabelaBDAppointement.CAMPO_DATE)
             val posTime = cursor.getColumnIndex(TabelaBDAppointement.CAMPO_TIME)
             val posIdClient = cursor.getColumnIndex(TabelaBDAppointement.CAMPO_CLIENT_ID)
             val posNomeClient = cursor.getColumnIndex(TabelaBDClient.CAMPO_NOME)
-
+            val posPoneNumber = cursor.getColumnIndex(TabelaBDClient.CAMPO_PHONE_NUMBER)
+            val posEmail = cursor.getColumnIndex(TabelaBDClient.CAMPO_EMAIL)
 
             val date = cursor.getLong(posDate)
-            val time = cursor.getString(posTime)
-            val name = cursor.getString(posName)
-            val idClient = cursor.getString(posIdClient)
+            val time = cursor.getLong(posTime)
+            val name = cursor.getString(posNomeClient)
+            val idClient = cursor.getLong(posIdClient)
             val id = cursor.getLong(posId)
-
+            val phone_number = cursor.getString(posPoneNumber)
+            val email = cursor.getString(posEmail)
             val nomeClient = cursor.getString(posNomeClient)
-            val client = Client(nomeClient, idClient)
+            val client = Client(nomeClient, phone_number , email ,idClient)
 
 
             return Appointment(name,time,date,client,id)

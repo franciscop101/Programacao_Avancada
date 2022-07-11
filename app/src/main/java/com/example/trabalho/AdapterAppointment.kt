@@ -34,7 +34,7 @@ class AdapterAppointment (val fragment: FragmentListaAppointment) : RecyclerView
                 field = value
 
                 textViewNameAppontments.text = appointment?.appointment_name ?: ""
-                textViewTime.text = appointment?.time ?: ""
+                textViewTime.text = (appointment?.time ?: "") as CharSequence?
                 textViewDate.text = (appointment?.date ?: "") as CharSequence?
                 textViewClient.text = appointment?.client?.nome ?: ""
             }

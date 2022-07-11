@@ -43,7 +43,7 @@ class FragmentEliminarAppointment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        appointment = FragmentEliminarAppoitmentArgs.fromBundle(arguments!!).appointment
+        appointment = FragmentEliminarAppointmentArgs.fromBundle(arguments!!).appointment
 
         binding.textViewNameAppontments.text = appointment.appointment_name
         binding.textViewDate.text = appointment.time
@@ -94,7 +94,7 @@ class FragmentEliminarAppointment : Fragment() {
     }
 
     private fun voltaListaLivros() {
-        val acao = FragmentEliminarAppoitmentDirections.actionFragmentEliminarAppoitmentToFragmentListaAppointment()
+        val acao = FragmentEliminarAppointmentDirections.actionFragmentEliminarAppoitmentToFragmentListaAppointment()
         findNavController().navigate(acao)
     }
 }

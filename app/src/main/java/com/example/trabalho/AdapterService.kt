@@ -20,7 +20,6 @@ class AdapterService (val fragment: FragmentListaService) : RecyclerView.Adapter
 
     inner class ViewHolderService(itemService: View) : RecyclerView.ViewHolder(itemService), View.OnClickListener {
         val textViewTypeServices = itemService.findViewById<TextView>(R.id.textViewTypeService)
-        val textViewAppoitment = itemService.findViewById<TextView>(R.id.textViewAppointment)
 
         init {
             itemService.setOnClickListener(this)
@@ -32,7 +31,6 @@ class AdapterService (val fragment: FragmentListaService) : RecyclerView.Adapter
                 field = value
 
                 textViewTypeServices.text = services?.service_type ?: ""
-                textViewAppoitment.text = services?.appoitment?.appointment_name ?: ""
             }
 
         /**

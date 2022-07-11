@@ -10,6 +10,7 @@ import android.view.ViewGroup
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.loader.app.LoaderManager
 
 import androidx.navigation.fragment.findNavController
 
@@ -37,7 +38,8 @@ class FragmentEditarClient : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-/*
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,7 +58,7 @@ class FragmentEditarClient : Fragment() {
         }
 
     }
- */
+
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {

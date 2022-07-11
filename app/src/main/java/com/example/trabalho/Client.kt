@@ -9,11 +9,10 @@ import java.io.Serializable
 //import android.provider.BaseColumns
 
 
-data class Client(var nome: String = "", var email: String = "", var phone_number: Long = 1, var id: Long = 1) :Serializable {
+data class Client(var nome: String = "", var email: String = "", var phone_number: String, var id: Long = 1) :Serializable {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
         valores.put(TabelaBDClient.CAMPO_NOME, nome)
-
         valores.put(TabelaBDClient.CAMPO_PHONE_NUMBER, phone_number)
         valores.put(TabelaBDClient.CAMPO_EMAIL, email)
 
@@ -33,7 +32,7 @@ data class Client(var nome: String = "", var email: String = "", var phone_numbe
 
             val nome = cursor.getString(posNome)
 
-            val phoneNumber = cursor.getLong(posPhoneNumber)
+            val phoneNumber = cursor.getString(posPhoneNumber)
             val email = cursor.getString(posEmail)
             val id = cursor.getLong(posId)
 

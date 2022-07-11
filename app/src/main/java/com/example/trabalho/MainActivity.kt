@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-/*
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -74,8 +74,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as FragmentListaClient).processaOpcaoMenu(item)
         } else if (fragment is FragmentEditarClient) {
             opcaoProcessada = (fragment as FragmentEditarClient).processaOpcaoMenu(item)
-        } else if (fragment is FrangmentEliminarClient) {
-            opcaoProcessada = (fragment as FrangmentEliminarClient).processaOpcaoMenu(item)
+        } else if (fragment is FragmentEliminarClient) {
+            opcaoProcessada = (fragment as FragmentEliminarClient).processaOpcaoMenu(item)
         } else {
             opcaoProcessada = false
         }
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
- */
+
 
 
 

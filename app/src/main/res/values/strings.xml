@@ -180,4 +180,7 @@
     <string name="erro_eliminar_appointment" />
     <string name="confirma_eliminar_appointment" />
     <string name="Date">date</string>
+    <string name="Email">Email</string>
+    <string name="Service">service</string>
+    <string name="fragment_lista_appoitment">listaapointment</string>
 </resources>

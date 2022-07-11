@@ -198,12 +198,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
             binding.editTextTime.requestFocus()
             return
         }
-        val client = binding.editTextClient.text.toString()
-        if (client.isBlank()) {
-            binding.editTextClient.error = getString(R.string.client_obrigatorio)
-            binding.editTextClient.requestFocus()
-            return
-        }
+
         val date = binding.editTextDate.text.toString()
         if (date.isBlank()) {
             binding.editTextDate.error = getString(R.string.client_obrigatorio)
@@ -236,9 +231,9 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
     }
 
     private fun alteraAppointment(
-        appointment_name: String, time: String, date: String,
+        appointment_name: String, time: Long, date: Long,
         idClient: Long) : Boolean {
-        val appointment = Appointment(appointment_name, time, date, Client(id = idClient))
+        val appointment = Appointment(appointment_name, time, date, Client("","","",id = idClient))
 
         val enderecoAppointment = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_CLIENTS, "${this.appointment!!.id}")
 
@@ -248,9 +243,9 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
     }
 
     private fun insereAppointment(
-        appointment_name: String, time: String, date: String,
+        appointment_name: String, time: Long, date: Long,
         idClient: Long): Boolean {
-        val appointment = Appointment(appointment_name, time, date, Client(id = idClient))
+        val appointment = Appointment(appointment_name, time, date, Client("","","",id = idClient))
 
         val enderecoAppointmentInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_CLIENTS, appointment.toContentValues())
 

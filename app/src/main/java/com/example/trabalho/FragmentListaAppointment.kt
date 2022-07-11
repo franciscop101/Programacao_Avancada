@@ -10,7 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
-import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trabalho.databinding.FragmentListaAppointmentBinding
 
@@ -150,13 +151,13 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
                 true
             }
             R.id.action_alterar -> {
-                val acao = FragmentListaAppointmentDirections.actionListaLivrosToEditarLivro(appointmentSeleccionado)
+                val acao = FragmentListaAppointmentDirections.actionFragmentListaAppointmentToFragmentEditarAppointment(appointmentSeleccionado)
                 findNavController().navigate(acao)
                 (activity as MainActivity).atualizaName(R.string.alterar_appointment_label)
                 true
             }
             R.id.action_eliminar -> {
-                val acao = FragmentListaAppointmentDirections.actionListaLivrosFragmentToEliminarLivroFragment(appointmentSeleccionado!!)
+                val acao = FragmentListaAppointmentDirections.actionFragmentListaAppointmentToFragmentEliminarAppoitment(appointmentSeleccionado!!)
                 findNavController().navigate(acao)
                 true
             }
