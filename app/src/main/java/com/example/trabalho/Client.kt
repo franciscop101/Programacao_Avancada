@@ -9,7 +9,7 @@ import java.io.Serializable
 //import android.provider.BaseColumns
 
 
-data class Client(var nome: String = "", var email: String = "", var phone_number: String, var id: Long = 1) :Serializable {
+data class Client(var nome: String = "", var email: String = "", var phone_number: String, var id: Long = -1) :Serializable {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
         valores.put(TabelaBDClient.CAMPO_NOME, nome)

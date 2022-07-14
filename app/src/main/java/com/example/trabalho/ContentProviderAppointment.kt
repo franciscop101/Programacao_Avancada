@@ -129,8 +129,11 @@ class ContentProviderAppointment : ContentProvider() {
         val cursor = when (getUriMatcher().match(uri)) {
             URI_SERVICES -> TabelaBDService(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_CLIENTS -> TabelaBDClient(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_APPOINTMENTS -> TabelaBDAppointement(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_SERVICE_ESPECIFICO -> TabelaBDService(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_CLIENT_ESPECIFICA -> TabelaBDClient(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_APPOINTMENT_ESPECIFICA -> TabelaBDAppointement(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+
             else -> null
         }
 
@@ -162,8 +165,10 @@ class ContentProviderAppointment : ContentProvider() {
         when (getUriMatcher().match(uri)) {
             URI_SERVICES -> "$MULTIPLOS_REGISTOS/${TabelaBDService.NOME}"
             URI_CLIENTS -> "$MULTIPLOS_REGISTOS/${TabelaBDClient.NOME}"
+            URI_APPOINTMENTS -> "$MULTIPLOS_REGISTOS/${TabelaBDAppointement.NOME}"
             URI_SERVICE_ESPECIFICO -> "$UNICO_REGISTO/${TabelaBDService.NOME}"
             URI_CLIENT_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDClient.NOME}"
+            URI_APPOINTMENT_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDAppointement.NOME}"
             else -> null
         }
 
@@ -187,6 +192,7 @@ class ContentProviderAppointment : ContentProvider() {
         val id = when (getUriMatcher().match(uri)) {
             URI_SERVICES -> TabelaBDService(db).insert(values)
             URI_CLIENTS -> TabelaBDClient(db).insert(values)
+            URI_APPOINTMENTS -> TabelaBDAppointement(db).insert(values)
             else -> -1
         }
 
@@ -228,6 +234,8 @@ class ContentProviderAppointment : ContentProvider() {
         val registosApagados = when (getUriMatcher().match(uri)) {
             URI_SERVICE_ESPECIFICO -> TabelaBDService(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_CLIENT_ESPECIFICA -> TabelaBDClient(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_APPOINTMENT_ESPECIFICA -> TabelaBDAppointement(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+
             else -> 0
         }
 
@@ -266,6 +274,7 @@ class ContentProviderAppointment : ContentProvider() {
         val registosAlterados = when (getUriMatcher().match(uri)) {
             URI_SERVICE_ESPECIFICO -> TabelaBDService(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_CLIENT_ESPECIFICA -> TabelaBDClient(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_APPOINTMENT_ESPECIFICA -> TabelaBDAppointement(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
             else -> 0
         }
 
@@ -281,14 +290,17 @@ class ContentProviderAppointment : ContentProvider() {
         private const val URI_CLIENT_ESPECIFICA = 101
         private const val URI_SERVICES = 200
         private const val URI_SERVICE_ESPECIFICO = 201
+        private const val URI_APPOINTMENTS = 300
+        private const val URI_APPOINTMENT_ESPECIFICA = 301
 
         const val UNICO_REGISTO = "vnd.android.cursor.item"
         const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
         private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
-        val ENDERECO_APPOINTEMTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDAppointement.NOME)
         val ENDERECO_CLIENTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDClient.NOME)
         val ENDERECO_SERVICE = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDService.NOME)
+        val ENDERECO_APPOINTEMTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDAppointement.NOME)
+
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
@@ -296,6 +308,8 @@ class ContentProviderAppointment : ContentProvider() {
             uriMatcher.addURI(AUTHORITY, "${TabelaBDClient.NOME}/#", URI_CLIENT_ESPECIFICA)
             uriMatcher.addURI(AUTHORITY, TabelaBDService.NOME, URI_SERVICES)
             uriMatcher.addURI(AUTHORITY, "${TabelaBDService.NOME}/#", URI_SERVICE_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, TabelaBDAppointement.NOME, URI_APPOINTMENTS)
+            uriMatcher.addURI(AUTHORITY, "${TabelaBDAppointement.NOME}/#", URI_APPOINTMENT_ESPECIFICA)
 
             return uriMatcher
         }

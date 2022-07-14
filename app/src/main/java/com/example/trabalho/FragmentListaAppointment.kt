@@ -44,7 +44,7 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        LoaderManager.getInstance(this).initLoader(ID_LOADER_APPOINTMENT, null, this)
+        //LoaderManager.getInstance(this).initLoader(ID_LOADER_APPOINTMENT, null, this)
 
         adapterAppointment = AdapterAppointment(this)
         binding.recyclerViewAppintment.adapter = adapterAppointment
@@ -73,11 +73,11 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
         CursorLoader(
             requireContext(),
-            ContentProviderAppointment.ENDERECO_CLIENTS,
+            ContentProviderAppointment.ENDERECO_APPOINTEMTS,
             TabelaBDAppointement.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDAppointement.CAMPO_NAME}"
+            "${TabelaBDAppointement.CAMPO_NAME_APPOITMENT}"
         )
 
     /**

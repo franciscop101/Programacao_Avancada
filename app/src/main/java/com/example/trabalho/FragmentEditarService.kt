@@ -101,7 +101,7 @@ class FragmentEditarService : Fragment(){
     private fun alteraService(service_type: String) : Boolean {
         val service = Services(service_type)
 
-        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${this.service}")
+        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_SERVICE, "${this.service!!.id}")
 
         val registosAlterados = requireActivity().contentResolver.update(enderecoServices, service.toContentValues(), null, null)
 
@@ -111,12 +111,12 @@ class FragmentEditarService : Fragment(){
     private fun insereService(service_type: String): Boolean {
         val service = Services(service_type)
 
-        val enderecoServiceInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_APPOINTEMTS, service.toContentValues())
+        val enderecoServiceInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_SERVICE, service.toContentValues())
 
         return enderecoServiceInserido != null
     }
 
     private fun voltaListaServices() {
-        findNavController().navigate(R.id.FragmentEditarServiceToFragmentListaService)
+        findNavController().navigate(R.id.action_FragmentEditarService_to_FragmentListaService)
     }
 }

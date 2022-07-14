@@ -77,7 +77,7 @@ class FragmentEliminarAppointment : Fragment() {
     }
 
     private fun confirmaEliminarLivro() {
-        val enderecoLivro = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_CLIENTS, "${appointment?.id}")
+        val enderecoLivro = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${appointment?.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoLivro, null, null)
 
         if (registosEliminados != 1) {

@@ -133,11 +133,6 @@
     <string name="fragment_lista_client" />
     <string name="client">Client</string>
     <string name="email" />
-    <string name="nome_obrigatorio" />
-    <string name="phone_obrigatorio" />
-    <string name="email_obrigatorio" />
-    <string name="client_guardado_sucesso" />
-    <string name="erro_guardar_client" />
     <string name="fragment_editar_client" />
     <string name="guardar" />
     <string name="cancelar" />
@@ -153,9 +148,6 @@
     <string name="inserir_service_label" />
     <string name="alterar_service_label" />
     <string name="fragment_lista_service" />
-    <string name="service_obrigatorio" />
-    <string name="service_guardado_sucesso" />
-    <string name="erro_guardar_service" />
     <string name="TypeService" />
     <string name="fragment_editar_service" />
     <string name="appointment_obrigatoria" />
@@ -183,4 +175,15 @@
     <string name="Email">Email</string>
     <string name="Service">service</string>
     <string name="fragment_lista_appoitment">listaapointment</string>
+    <string name="eliminar_appointment">Eliminar Appointment</string>
+    <string name="eliminar_client">Eliminar Client</string>
+    <string name="eliminar_service">Eliminar Service</string>
+    <string name="service_obrigatorio">service obrigatorio</string>
+    <string name="service_guardado_sucesso">service guardado com sucesso</string>
+    <string name="erro_guardar_service">erro ao guardar service</string>
+    <string name="nome_obrigatorio">nome obrigatorio</string>
+    <string name="phone_obrigatorio">phone obrigatorio</string>
+    <string name="email_obrigatorio">email obrigatorio</string>
+    <string name="client_guardado_sucesso">client guardado com sucesso</string>
+    <string name="erro_guardar_client">erro ao guardar client</string>
 </resources>

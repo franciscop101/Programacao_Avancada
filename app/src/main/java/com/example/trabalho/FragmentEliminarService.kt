@@ -74,7 +74,7 @@ class FragmentEliminarService : Fragment() {
     }
 
     private fun confirmaEliminarService() {
-        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${services?.service_type}")
+        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_SERVICE, "${services?.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoServices, null, null)
 
         if (registosEliminados != 1) {

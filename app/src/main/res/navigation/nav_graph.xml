@@ -11,9 +11,7 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+
         <action
             android:id="@+id/action_FirstFragment_to_FragmentListaClient"
             app:destination="@id/FragmentListaClient" />
@@ -26,16 +24,8 @@
             app:destination="@id/FragmentListaAppointment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.trabalho.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+
 
     <fragment
         android:id="@+id/FragmentListaClient"
@@ -136,14 +126,14 @@
         android:name="com.example.trabalho.FragmentEditarService"
         android:label="@string/fragment_editar_service"
         tools:layout="@layout/fragment_editar_service">
-        <action
-            android:id="@+id/action_FragmentEditarService_to_FragmentListaService"
-            app:destination="@id/FragmentListaService" />
         <argument
             android:name="services"
             app:argType="com.example.trabalho.Services"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_FragmentEditarService_to_FragmentListaService"
+            app:destination="@id/FragmentListaService" />
     </fragment>
 
     <fragment

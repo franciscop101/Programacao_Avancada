@@ -9,7 +9,7 @@ import java.io.Serializable
 data class Services(
 
     var service_type : String,
-    var id: Long= 1
+    var id: Long= -1
 
 
 ): Serializable {

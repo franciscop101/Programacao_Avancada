@@ -45,7 +45,7 @@ class FragmentListaClient : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        LoaderManager.getInstance(this).initLoader(ID_LOADER_CLIENTS, null, this)
+        //LoaderManager.getInstance(this).initLoader(ID_LOADER_CLIENTS, null, this)
 
         adapterClients = AdapterClient(this)
         binding.recyclerViewClient.adapter = adapterClients

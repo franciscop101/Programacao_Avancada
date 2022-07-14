@@ -28,17 +28,17 @@ class BaseDadosTest {
 
     private fun insereClient(db: SQLiteDatabase, client: Client) {
         client.id = TabelaBDClient(db).insert(client.toContentValues())
-        assertNotEquals(2, client.id)
+        assertNotEquals(-1, client.id)
     }
 
     private fun insereService(db: SQLiteDatabase, services: Services) {
         services.id = TabelaBDService(db).insert(services.toContentValues())
-        assertNotEquals(2, services.id)
+        assertNotEquals(-1, services.id)
     }
 
     private fun insereAppointment(db: SQLiteDatabase, appointment: Appointment) {
         appointment.id = TabelaBDAppointement(db).insert(appointment.toContentValues())
-        assertNotEquals(2, appointment.id)
+        assertNotEquals(1, appointment.id)
     }
 
     @Before
@@ -61,14 +61,7 @@ class BaseDadosTest {
     fun consegueInserirService() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste3","14-12-2022","935554378","Teste3")
-        insereClient(db, client)
-
-        val appointment = Appointment(21062022,"13 min",client.id)
-        insereAppointment(db, appointment)
-
-        val services = Services("ServiceTeste","50 min",appointment.id)
-        insereService(db, services)
+        insereService(db, Services("service_teste"))
 
         db.close()
     }
@@ -78,7 +71,7 @@ class BaseDadosTest {
     fun consegueInserirClient() {
         val db = getWritableDatabase()
 
-        insereClient(db, Client("Teste","12-12-2022","935654478","Teste"))
+        insereClient(db, Client("Teste2","teste2@gmail.com","935654478"))
 
         db.close()
     }
@@ -87,34 +80,35 @@ class BaseDadosTest {
     fun consegueInserirAppointment() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste2","13-12-2022","935654378","Teste2")
+        val client = Client("Teste3","teste3@gmail.com","935654378")
         insereClient(db, client)
 
-        val appointment = Appointment(20062022,"12 min",client.id)
+        val appointment = Appointment("kakak",10,11112022,client)
         insereAppointment(db, appointment)
 
+
         db.close()
+
     }
 
     @Test
     fun consegueAlterarClient() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste4","15-12-2022","935354378","Teste4")
+        val client = Client("Test4","teste4@gmail.com","935654378")
         insereClient(db, client)
 
         client.nome = "Joao"
-        client.date_birthday = "30-01-2001"
         client.phone_number = "935486426"
         client.email = "joao@gmail.com"
 
         val  registosAlterados = TabelaBDClient(db).update(
             client.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDClient.CAMPO_ID}=?",
             arrayOf("${client.id}")
         )
 
-        assertNotEquals( 2, registosAlterados)
+        assertNotEquals( -1, registosAlterados)
 
         db.close()
 
@@ -124,23 +118,27 @@ class BaseDadosTest {
     fun consegueAlterarAppointment() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste5","16-12-2022","935674778","Teste5")
-        insereClient(db, client)
+        val clientAna = Client("Teste9","teste9@gmail.com","935655558")
+        insereClient(db, clientAna)
 
-        val appointment = Appointment(20072022,"32 min",client.id)
+        val clientMaria = Client("Teste69","teste6@gmail.com","935654378")
+        insereClient(db, clientMaria)
+
+        val appointment = Appointment("teste55",32,11112022,clientAna)
         insereAppointment(db, appointment)
 
-        appointment.date = 11012023
-        appointment.time = "50 min"
+        appointment.appointment_name = "unhas55"
+        appointment.time = 50
+        appointment.date = 11112023
+        appointment.client = clientMaria
 
 
         val  registosAlterados = TabelaBDAppointement(db).update(
             appointment.toContentValues(),
-            "${BaseColumns._ID}=?",
-            arrayOf("${appointment.id}")
-        )
+            "${TabelaBDAppointement.CAMPO_ID}=?",
+            arrayOf("${appointment.id}"))
 
-        assertNotEquals( 2, registosAlterados)
+        assertEquals(1, registosAlterados)
 
         db.close()
 
@@ -150,26 +148,19 @@ class BaseDadosTest {
     fun consegueAlterarService() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste6","14-11-2022","935555578","Teste6")
-        insereClient(db, client)
-
-        val appointment = Appointment(27062022,"32 min",client.id)
-        insereAppointment(db, appointment)
-
-        val services = Services("ServiceTeste2","55 min",appointment.id)
+        val services = Services("ServiceTeste2")
         insereService(db, services)
 
         services.service_type = "unhas"
-        services.duration = "30 min"
 
 
         val  registosAlterados = TabelaBDService(db).update(
             services.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDService.CAMPO_ID}=?",
             arrayOf("${services.id}")
         )
 
-        assertNotEquals( 2, registosAlterados)
+        assertNotEquals( -1, registosAlterados)
 
         db.close()
 
@@ -179,16 +170,16 @@ class BaseDadosTest {
     fun consegueEliminarClient() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste7","14-02-2023","925565578","Teste7")
+        val client = Client("Teste7","14-02-2023","925565578")
         insereClient(db, client)
 
 
         val  registosEliminados = TabelaBDClient(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDClient.CAMPO_ID}=?",
             arrayOf("${client.id}")
         )
 
-        assertNotEquals( 2, registosEliminados)
+        assertNotEquals( -1, registosEliminados)
 
         db.close()
     }
@@ -197,19 +188,19 @@ class BaseDadosTest {
     fun consegueEliminarAppointment() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste8","16-11-2022","935643778","Teste8")
+        val client = Client("Teste8","exeli@gmail.com","935643778")
         insereClient(db, client)
 
-        val appointment = Appointment(20072022,"35 min",client.id)
+        val appointment = Appointment("mariana",10,22/12/2022, client)
         insereAppointment(db, appointment)
 
 
         val  registosEliminados = TabelaBDAppointement(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDAppointement.CAMPO_ID}=?",
             arrayOf("${appointment.id}")
         )
 
-        assertNotEquals( 2, registosEliminados)
+        assertNotEquals( -1, registosEliminados)
 
         db.close()
     }
@@ -219,22 +210,16 @@ class BaseDadosTest {
         val db = getWritableDatabase()
 
 
-        val client = Client("Teste9","13-01-2022","937855578","Teste9")
-        insereClient(db, client)
-
-        val appointment = Appointment(13072022,"40 min",client.id)
-        insereAppointment(db, appointment)
-
-        val services = Services("ServiceTeste3","56 min",appointment.id)
+        val services = Services("ServiceTeste3")
         insereService(db, services)
 
 
         val  registosEliminados = TabelaBDService(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDService.CAMPO_ID}=?",
             arrayOf("${services.id}")
         )
 
-        assertNotEquals( 2, registosEliminados)
+        assertNotEquals( -1, registosEliminados)
 
         db.close()
     }
@@ -243,12 +228,12 @@ class BaseDadosTest {
     fun consegueLerClient() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste13","13-04-2022","931374778","Teste13")
+        val client = Client("Teste13","qwert@gmail.com","931374778")
         insereClient(db, client)
 
         val  cursor = TabelaBDClient(db).query(
             TabelaBDClient.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDClient.CAMPO_ID}=?",
             arrayOf("${client.id}"),
             null,
             null,
@@ -270,15 +255,15 @@ class BaseDadosTest {
     fun consegueLerAppointement() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste11","16-04-2022","931274778","Teste11")
+        val client = Client("Teste11","16-04-2022","931274778")
         insereClient(db, client)
 
-        val appointment = Appointment(23032022,"65 min",client.id)
+        val appointment = Appointment("qwer",65,17112022,client)
         insereAppointment(db, appointment)
 
         val  cursor = TabelaBDAppointement(db).query(
             TabelaBDAppointement.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDAppointement.CAMPO_ID}=?",
             arrayOf("${appointment.id}"),
             null,
             null,
@@ -300,18 +285,12 @@ class BaseDadosTest {
     fun consegueLerService() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste12","12-01-2022","931255578","Teste12")
-        insereClient(db, client)
-
-        val appointment = Appointment(12072022,"12 min",client.id)
-        insereAppointment(db, appointment)
-
-        val services = Services("ServiceTeste4","12 min",appointment.id)
+        val services = Services("ServiceTeste4")
         insereService(db, services)
 
         val  cursor = TabelaBDService(db).query(
             TabelaBDService.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDService.CAMPO_ID}=?",
             arrayOf("${services.id}"),
             null,
             null,

@@ -36,7 +36,7 @@ class FirstFragment : Fragment() {
         binding.button3.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaService)
         }
-        binding.button.setOnClickListener {
+        /*binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
         binding.button2.setOnClickListener {
@@ -57,6 +57,8 @@ class FirstFragment : Fragment() {
         binding.button9.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
+         */
         binding.button4.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
