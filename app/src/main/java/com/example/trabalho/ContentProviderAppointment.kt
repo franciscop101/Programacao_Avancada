@@ -288,6 +288,7 @@ class ContentProviderAppointment : ContentProvider() {
         private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
         val ENDERECO_APPOINTEMTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDAppointement.NOME)
         val ENDERECO_CLIENTS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDClient.NOME)
+        val ENDERECO_SERVICE = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDService.NOME)
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 

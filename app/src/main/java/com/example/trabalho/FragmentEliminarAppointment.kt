@@ -21,7 +21,7 @@ class FragmentEliminarAppointment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var appointment: Appointment
+    private var appointment: Appointment? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +45,9 @@ class FragmentEliminarAppointment : Fragment() {
 
         appointment = FragmentEliminarAppointmentArgs.fromBundle(arguments!!).appointment
 
-        binding.textViewNameAppontments.text = appointment.appointment_name
-        binding.textViewDate.text = appointment.time
-        binding.textViewClient.text = appointment.client.nome
+        binding.textViewNameAppontments.text = appointment?.appointment_name
+        binding.textViewDate.text = appointment?.time.toString()
+        binding.textViewClient.text = appointment?.client?.nome
 
     }
 
@@ -77,7 +77,7 @@ class FragmentEliminarAppointment : Fragment() {
     }
 
     private fun confirmaEliminarLivro() {
-        val enderecoLivro = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_CLIENTS, "${appointment.id}")
+        val enderecoLivro = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_CLIENTS, "${appointment?.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoLivro, null, null)
 
         if (registosEliminados != 1) {

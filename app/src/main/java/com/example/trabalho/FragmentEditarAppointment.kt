@@ -52,8 +52,8 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
 
             if (appointment != null) {
                 binding.editTextNameAppointment.setText(appointment!!.appointment_name)
-                binding.editTextTime.setText(appointment!!.time)
-                binding.editTextDate.setText(appointment!!.date)
+                binding.editTextTime.setText(appointment!!.time.toString())
+                binding.editTextDate.setText(appointment!!.date.toString())
                 }
         }
 
@@ -192,19 +192,22 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
             return
         }
 
-        val time = binding.editTextTime.text.toString()
-        if (time.isBlank()) {
+        val stime = binding.editTextTime.text.toString()
+        if (stime.isBlank()) {
             binding.editTextTime.error = getString(R.string.time_obrigatorio)
             binding.editTextTime.requestFocus()
             return
         }
+        val time = stime.toLong()
 
-        val date = binding.editTextDate.text.toString()
-        if (date.isBlank()) {
+
+        val sdate = binding.editTextDate.text.toString()
+        if (sdate.isBlank()) {
             binding.editTextDate.error = getString(R.string.client_obrigatorio)
             binding.editTextDate.requestFocus()
             return
         }
+        val date = stime.toLong()
 
         val idClient = binding.spinnerClient.selectedItemId
         if (idClient == Spinner.INVALID_ROW_ID) {

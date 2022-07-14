@@ -33,8 +33,8 @@ class AdapterClient(val fragment: FragmentListaClient) : RecyclerView.Adapter<Ad
                 field = value
 
                 textViewName.text = client?.nome ?: ""
-                textViewPhone.text = (client?.phone_number ?: "") as CharSequence?
-                textViewEmail.text = (client?.email ?: "") as CharSequence?
+                textViewPhone.text = (client?.phone_number ?: "")
+                textViewEmail.text = (client?.email ?: "")
             }
 
         /**

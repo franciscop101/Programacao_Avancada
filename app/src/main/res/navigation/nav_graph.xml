@@ -98,6 +98,7 @@
         <action
             android:id="@+id/action_FragmentListaService_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+
     </fragment>
 
     <fragment
@@ -110,7 +111,7 @@
             app:destination="@id/FragmentListaService" />
         <argument
             android:name="service"
-            app:argType="com.example.trabalho.Services" />
+            app:argType="com.example.trabalho.Services"/>
     </fragment>
 
     <fragment
@@ -141,7 +142,8 @@
         <argument
             android:name="services"
             app:argType="com.example.trabalho.Services"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment
@@ -155,7 +157,8 @@
         <argument
             android:name="appointments"
             app:argType="com.example.trabalho.Appointment"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment
@@ -169,7 +172,7 @@
             app:destination="@id/FragmentListaAppointment" />
         <argument
             android:name="appointment"
-            app:argType="com.example.trabalho.Appointment" />
+            app:argType="com.example.trabalho.Appointment"/>
     </fragment>
 
 

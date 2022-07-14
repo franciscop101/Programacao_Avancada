@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="#00C86473"
-            android:text="@string/appointments"
+            android:text="@string/Service"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintHorizontal_bias="0.164"

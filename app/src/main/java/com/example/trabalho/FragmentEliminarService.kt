@@ -21,7 +21,7 @@ class FragmentEliminarService : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var services: Services
+    private var services: Services? =null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +45,7 @@ class FragmentEliminarService : Fragment() {
 
         services = FragmentEliminarServiceArgs.fromBundle(arguments!!).service
 
-        binding.textViewTypeService.text = services.service_type
+        binding.textViewTypeService.text = services?.service_type
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -74,7 +74,7 @@ class FragmentEliminarService : Fragment() {
     }
 
     private fun confirmaEliminarService() {
-        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${services.service_type}")
+        val enderecoServices = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${services?.service_type}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoServices, null, null)
 
         if (registosEliminados != 1) {

@@ -9,6 +9,7 @@ import java.io.Serializable
 data class Services(
 
     var service_type : String,
+    var id: Long= 1
 
 
 ): Serializable {
@@ -24,11 +25,13 @@ data class Services(
     companion object {
         fun fromCursor(cursor: Cursor): Services {
 
+            val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posServiceType = cursor.getColumnIndex(TabelaBDService.CAMPO_SERVICE_TYPE)
 
             val serviceType = cursor.getString(posServiceType)
+            val id = cursor.getLong(posId)
 
-            return Services(serviceType)
+            return Services(serviceType,id)
 
         }
     }

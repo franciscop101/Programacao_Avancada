@@ -70,17 +70,34 @@ class MainActivity : AppCompatActivity() {
 
         if (fragment is FirstFragment) {
             opcaoProcessada = (fragment as FirstFragment).processaOpcaoMenu(item)
+        //CLIENT
         } else if (fragment is FragmentListaClient) {
             opcaoProcessada = (fragment as FragmentListaClient).processaOpcaoMenu(item)
         } else if (fragment is FragmentEditarClient) {
             opcaoProcessada = (fragment as FragmentEditarClient).processaOpcaoMenu(item)
         } else if (fragment is FragmentEliminarClient) {
             opcaoProcessada = (fragment as FragmentEliminarClient).processaOpcaoMenu(item)
+
+        //SERVICE
+        } else if (fragment is FragmentListaService) {
+            opcaoProcessada = (fragment as FragmentListaService).processaOpcaoMenu(item)
+        } else if (fragment is FragmentEditarService) {
+            opcaoProcessada = (fragment as FragmentEditarService).processaOpcaoMenu(item)
+        } else if (fragment is FragmentEliminarService) {
+            opcaoProcessada = (fragment as FragmentEliminarService).processaOpcaoMenu(item)
+
+        //APPOINTMENT
+        } else if (fragment is FragmentListaAppointment) {
+            opcaoProcessada = (fragment as FragmentListaAppointment).processaOpcaoMenu(item)
+        } else if (fragment is FragmentEditarAppointment) {
+            opcaoProcessada = (fragment as FragmentEditarAppointment).processaOpcaoMenu(item)
+        } else if (fragment is FragmentEliminarAppointment) {
+            opcaoProcessada = (fragment as FragmentEliminarAppointment).processaOpcaoMenu(item)
         } else {
             opcaoProcessada = false
         }
 
-        if (opcaoProcessada) return true
+            if (opcaoProcessada) return true
 
         return super.onOptionsItemSelected(item)
     }
