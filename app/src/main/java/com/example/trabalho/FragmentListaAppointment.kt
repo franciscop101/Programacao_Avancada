@@ -15,6 +15,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trabalho.databinding.FragmentListaAppointmentBinding
 
+/**
+ * A simple [Fragment] subclass as the second destination in the navigation.
+ */
 class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     var appointmentSeleccionado : Appointment? = null
         get() = field
@@ -44,7 +47,7 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //LoaderManager.getInstance(this).initLoader(ID_LOADER_APPOINTMENT, null, this)
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_APPOINTMENT, null, this)
 
         adapterAppointment = AdapterAppointment(this)
         binding.recyclerViewAppintment.adapter = adapterAppointment
@@ -53,6 +56,10 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista
+
+        binding.button14.setOnClickListener {
+            findNavController().navigate(R.id.action_FragmentListaAppointment_to_FirstFragment)
+        }
     }
 
     override fun onDestroyView() {
@@ -77,7 +84,7 @@ class FragmentListaAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curso
             TabelaBDAppointement.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDAppointement.CAMPO_NAME_APPOITMENT}"
+            "${TabelaBDAppointement.CAMPO_NAME_APPOINTMENT}"
         )
 
     /**

@@ -80,7 +80,7 @@ class FragmentEliminarService : Fragment() {
         if (registosEliminados != 1) {
             Snackbar.make(
                 binding.textViewTypeService,
-                R.string.erro_eliminar_livro,
+                R.string.erro_eliminar_service,
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return

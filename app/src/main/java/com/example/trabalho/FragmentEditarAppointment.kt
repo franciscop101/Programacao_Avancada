@@ -54,11 +54,10 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
                 binding.editTextNameAppointment.setText(appointment!!.appointment_name)
                 binding.editTextTime.setText(appointment!!.time.toString())
                 binding.editTextDate.setText(appointment!!.date.toString())
-               // binding.spinnerClient.adapter(appointment!!.client)
                 }
         }
 
-        //LoaderManager.getInstance(this).initLoader(ID_LOADER_CLIENT, null, this)
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_CLIENT, null, this)
     }
 
     companion object {
@@ -204,7 +203,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
 
         val sdate = binding.editTextDate.text.toString()
         if (sdate.isBlank()) {
-            binding.editTextDate.error = getString(R.string.client_obrigatorio)
+            binding.editTextDate.error = getString(R.string.day_obrigatorio)
             binding.editTextDate.requestFocus()
             return
         }
@@ -237,7 +236,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
     private fun alteraAppointment(
         appointment_name: String, time: Long, date: Long,
         idClient: Long) : Boolean {
-        val appointment = Appointment(appointment_name, time, date, Client("","","",id = idClient))
+        val appointment = Appointment(appointment_name, time, date,Client(id = idClient))
 
         val enderecoAppointment = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${this.appointment!!.id}")
 
@@ -247,7 +246,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
     }
 
     private fun insereAppointment(appointment_name: String, time: Long, date: Long, idClient: Long): Boolean {
-        val appointment = Appointment(appointment_name, time, date, Client("","","",id = idClient))
+        val appointment = Appointment(appointment_name, time, date, Client(id = idClient))
 
         val enderecoAppointmentInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_APPOINTEMTS, appointment.toContentValues())
 

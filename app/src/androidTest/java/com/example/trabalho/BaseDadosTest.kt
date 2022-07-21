@@ -31,14 +31,14 @@ class BaseDadosTest {
         assertNotEquals(-1, client.id)
     }
 
-    private fun insereService(db: SQLiteDatabase, services: Services) {
-        services.id = TabelaBDService(db).insert(services.toContentValues())
-        assertNotEquals(-1, services.id)
+    private fun insereService(db: SQLiteDatabase, service: Services) {
+        service.id = TabelaBDService(db).insert(service.toContentValues())
+        assertNotEquals(-1, service.id)
     }
 
     private fun insereAppointment(db: SQLiteDatabase, appointment: Appointment) {
         appointment.id = TabelaBDAppointement(db).insert(appointment.toContentValues())
-        assertNotEquals(1, appointment.id)
+        assertNotEquals(-1, appointment.id)
     }
 
     @Before
@@ -108,7 +108,7 @@ class BaseDadosTest {
             arrayOf("${client.id}")
         )
 
-        assertNotEquals( -1, registosAlterados)
+        assertEquals( 1, registosAlterados)
 
         db.close()
 
@@ -118,13 +118,13 @@ class BaseDadosTest {
     fun consegueAlterarAppointment() {
         val db = getWritableDatabase()
 
-        val clientAna = Client("Teste9","teste9@gmail.com","935655558")
+        val clientAna = Client("Test9","teste9@gmail.com","935655558")
         insereClient(db, clientAna)
 
-        val clientMaria = Client("Teste69","teste6@gmail.com","935654378")
+        val clientMaria = Client("Test69","teste6@gmail.com","935654378")
         insereClient(db, clientMaria)
 
-        val appointment = Appointment("teste55",32,11112022,clientAna)
+        val appointment = Appointment("test55",32,11112022,clientAna)
         insereAppointment(db, appointment)
 
         appointment.appointment_name = "unhas55"
@@ -160,7 +160,7 @@ class BaseDadosTest {
             arrayOf("${services.id}")
         )
 
-        assertNotEquals( -1, registosAlterados)
+        assertEquals( 1, registosAlterados)
 
         db.close()
 
@@ -179,7 +179,7 @@ class BaseDadosTest {
             arrayOf("${client.id}")
         )
 
-        assertNotEquals( -1, registosEliminados)
+        assertEquals( 1, registosEliminados)
 
         db.close()
     }
@@ -191,7 +191,7 @@ class BaseDadosTest {
         val client = Client("Teste8","exeli@gmail.com","935643778")
         insereClient(db, client)
 
-        val appointment = Appointment("mariana",10,22/12/2022, client)
+        val appointment = Appointment("mariana",10,22122022, client)
         insereAppointment(db, appointment)
 
 
@@ -200,7 +200,7 @@ class BaseDadosTest {
             arrayOf("${appointment.id}")
         )
 
-        assertNotEquals( -1, registosEliminados)
+        assertEquals( 1, registosEliminados)
 
         db.close()
     }
@@ -219,7 +219,7 @@ class BaseDadosTest {
             arrayOf("${services.id}")
         )
 
-        assertNotEquals( -1, registosEliminados)
+        assertEquals( 1, registosEliminados)
 
         db.close()
     }
@@ -255,7 +255,7 @@ class BaseDadosTest {
     fun consegueLerAppointement() {
         val db = getWritableDatabase()
 
-        val client = Client("Teste11","16-04-2022","931274778")
+        val client = Client("Teste13","qwert@gmail.com","931374778")
         insereClient(db, client)
 
         val appointment = Appointment("qwer",65,17112022,client)

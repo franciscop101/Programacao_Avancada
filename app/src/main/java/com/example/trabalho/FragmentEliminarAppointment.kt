@@ -54,31 +54,31 @@ class FragmentEliminarAppointment : Fragment() {
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_eliminar -> {
-                eliminaLivro()
+                eliminaAppoitment()
                 true
             }
             R.id.action_cancelar -> {
-                voltaListaLivros()
+                voltaListaAppointment()
                 true
             }
             else -> false
         }
 
-    private fun eliminaLivro() {
+    private fun eliminaAppoitment() {
         val alertDialog = AlertDialog.Builder(requireContext())
 
         alertDialog.apply {
             setTitle(R.string.eliminar_appointment_label)
             setMessage(R.string.confirma_eliminar_appointment)
             setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialogInterface, i ->  })
-            setPositiveButton(R.string.eliminar, DialogInterface.OnClickListener { dialogInterface, i -> confirmaEliminarLivro() })
+            setPositiveButton(R.string.eliminar, DialogInterface.OnClickListener { dialogInterface, i -> confirmaEliminaAppoitment() })
             show()
         }
     }
 
-    private fun confirmaEliminarLivro() {
-        val enderecoLivro = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${appointment?.id}")
-        val registosEliminados = requireActivity().contentResolver.delete(enderecoLivro, null, null)
+    private fun confirmaEliminaAppoitment() {
+        val enderecoAppointment = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_APPOINTEMTS, "${appointment?.id}")
+        val registosEliminados = requireActivity().contentResolver.delete(enderecoAppointment, null, null)
 
         if (registosEliminados != 1) {
             Snackbar.make(
@@ -90,10 +90,10 @@ class FragmentEliminarAppointment : Fragment() {
         }
 
         Toast.makeText(requireContext(), R.string.appointment_eliminado_sucesso, Toast.LENGTH_LONG).show()
-        voltaListaLivros()
+        voltaListaAppointment()
     }
 
-    private fun voltaListaLivros() {
+    private fun voltaListaAppointment() {
         val acao = FragmentEliminarAppointmentDirections.actionFragmentEliminarAppoitmentToFragmentListaAppointment()
         findNavController().navigate(acao)
     }

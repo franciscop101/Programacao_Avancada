@@ -36,29 +36,30 @@ class FirstFragment : Fragment() {
         binding.button3.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaService)
         }
-        /*binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
         binding.button2.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
         binding.button5.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
         binding.button6.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
         binding.button7.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
         binding.button8.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-        binding.button9.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }
 
-         */
+        binding.button9.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
+        }
+
+
         binding.button4.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_FragmentListaAppointment)
         }

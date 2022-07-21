@@ -42,10 +42,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        /**binding.fab.setOnClickListener { view ->
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        .setAction("Action", null).show()
-        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,8 +56,6 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
-
 
         val opcaoProcessada: Boolean
 
@@ -94,13 +88,10 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = false
         }
 
-            if (opcaoProcessada) return true
+        if (opcaoProcessada) return true
 
         return super.onOptionsItemSelected(item)
     }
-
-
-
 
 
     override fun onSupportNavigateUp(): Boolean {

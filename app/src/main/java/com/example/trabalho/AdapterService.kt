@@ -78,8 +78,8 @@ class AdapterService (val fragment: FragmentListaService) : RecyclerView.Adapter
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderService {
-        val itemLivro = fragment.layoutInflater.inflate(R.layout.item_service, parent, false)
-        return ViewHolderService(itemLivro)
+        val itemService = fragment.layoutInflater.inflate(R.layout.item_service, parent, false)
+        return ViewHolderService(itemService)
     }
 
     /**

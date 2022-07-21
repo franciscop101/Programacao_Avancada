@@ -29,7 +29,7 @@
             android:layout_marginTop="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTelemovel"
+                android:id="@+id/editTextPhoneNumer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone"

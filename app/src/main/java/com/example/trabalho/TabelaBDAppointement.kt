@@ -8,7 +8,7 @@ import android.provider.BaseColumns
 class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
     override fun cria() {
         db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "$CAMPO_NAME_APPOITMENT TEXT NOT NULL, " +
+                "$CAMPO_NAME_APPOINTMENT TEXT NOT NULL, " +
                 "$CAMPO_DATE TEXT NOT NULL, " +
                 "$CAMPO_TIME TEXT NOT NULL, " +
                 "$CAMPO_CLIENT_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_CLIENT_ID) REFERENCES ${TabelaBDClient.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT )")
@@ -23,7 +23,7 @@ class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-            queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDClient.NOME} ON ${TabelaBDClient.CAMPO_NOME} = $CAMPO_CLIENT_ID"
+            queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDClient.NOME} ON ${TabelaBDClient.CAMPO_ID} = $CAMPO_CLIENT_ID"
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -31,16 +31,20 @@ class TabelaBDAppointement ( db: SQLiteDatabase) : TabelaBD(db, NOME) {
     companion object {
         const val NOME = "appointment"
         const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
-        const val CAMPO_NAME_APPOITMENT = "appointment name "
+        const val CAMPO_NAME_APPOINTMENT = "appointment_name"
         const val CAMPO_DATE = "date"
         const val CAMPO_TIME = "time"
         const val CAMPO_CLIENT_ID = "clientId"
 
         val TODAS_COLUNAS = arrayOf(CAMPO_ID,
-            CAMPO_NAME_APPOITMENT,
+            CAMPO_NAME_APPOINTMENT,
             CAMPO_DATE,
             CAMPO_TIME,
-            CAMPO_CLIENT_ID, TabelaBDClient.CAMPO_NOME
+            CAMPO_CLIENT_ID,
+            TabelaBDClient.CAMPO_NOME,
+            TabelaBDClient.CAMPO_EMAIL,
+            TabelaBDClient.CAMPO_PHONE_NUMBER
+
         )
     }
 }

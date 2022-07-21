@@ -1,19 +1,13 @@
 package com.example.trabalho
 
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SimpleCursorAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.CursorLoader
-import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.trabalho.databinding.FragmentEditarServiceBinding
 import com.google.android.material.snackbar.Snackbar

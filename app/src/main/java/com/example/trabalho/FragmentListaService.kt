@@ -14,6 +14,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trabalho.databinding.FragmentListaServiceBinding
 
+/**
+ * A simple [Fragment] subclass as the second destination in the navigation.
+ */
 class FragmentListaService : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     var serviceSeleccionado : Services? = null
         get() = field
@@ -43,7 +46,7 @@ class FragmentListaService : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //LoaderManager.getInstance(this).initLoader(FragmentListaService.ID_LOADER_SERVICE, null, this)
+        LoaderManager.getInstance(this).initLoader(FragmentListaService.ID_LOADER_SERVICE, null, this)
 
         adapterServices = AdapterService(this)
         binding.recyclerViewService.adapter = adapterServices
@@ -52,6 +55,10 @@ class FragmentListaService : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista
+
+        binding.button12.setOnClickListener {
+            findNavController().navigate(R.id.action_FragmentListaService_to_FirstFragment)
+        }
     }
 
     override fun onDestroyView() {

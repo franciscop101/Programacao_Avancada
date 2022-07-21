@@ -137,7 +137,7 @@ class ContentProviderAppointment : ContentProvider() {
             else -> null
         }
 
-        db.close()
+
 
         return cursor
     }

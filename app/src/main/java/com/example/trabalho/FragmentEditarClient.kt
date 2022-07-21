@@ -52,7 +52,7 @@ class FragmentEditarClient : Fragment() {
 
             if (client != null) {
                 binding.editTextNome.setText(client!!.nome)
-                binding.editTextTelemovel.setText(client!!.phone_number)
+                binding.editTextPhoneNumer.setText(client!!.phone_number)
                 binding.editTextEmail.setText(client!!.email)
             }
         }
@@ -81,10 +81,10 @@ class FragmentEditarClient : Fragment() {
             return
         }
 
-        val telemovel = binding.editTextTelemovel.text.toString()
+        val telemovel = binding.editTextPhoneNumer.text.toString()
         if (telemovel.isBlank()) {
-            binding.editTextTelemovel.error = getString(R.string.phone_obrigatorio)
-            binding.editTextTelemovel.requestFocus()
+            binding.editTextPhoneNumer.error = getString(R.string.phone_obrigatorio)
+            binding.editTextPhoneNumer.requestFocus()
             return
         }
         val email = binding.editTextEmail.text.toString()
@@ -112,8 +112,8 @@ class FragmentEditarClient : Fragment() {
         }
     }
 
-    private fun alteraClient(nome: String, telemovel: String, email: String) : Boolean {
-        val client = Client(nome, telemovel, email )
+    private fun alteraClient(nome: String, phone_number: String, email: String) : Boolean {
+        val client = Client(nome, phone_number, email )
 
         val enderecoClient = Uri.withAppendedPath(ContentProviderAppointment.ENDERECO_CLIENTS, "${this.client!!.id}")
 
@@ -122,8 +122,8 @@ class FragmentEditarClient : Fragment() {
         return registosAlterados == 1
     }
 
-    private fun insereClient(nome: String, telemovel: String, email: String): Boolean {
-        val client = Client(nome, telemovel, email )
+    private fun insereClient(nome: String, phone_number: String, email: String): Boolean {
+        val client = Client(nome, phone_number, email )
 
         val enderecoClientInserido = requireActivity().contentResolver.insert(ContentProviderAppointment.ENDERECO_CLIENTS, client.toContentValues())
 

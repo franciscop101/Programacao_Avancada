@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.trabalho.databinding.FragmentEditarClientBinding
 import com.example.trabalho.databinding.FragmentEliminarClientBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -44,7 +43,7 @@ class FragmentEliminarClient : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //client = FrangmentEliminarClientArgs.fromBundle(arguments!!).client
+        client = FragmentEliminarClientArgs.fromBundle(arguments!!).client
 
         binding.textViewName.text = client.nome
         binding.textViewPhone.text = client.phone_number
