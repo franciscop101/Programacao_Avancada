@@ -146,7 +146,7 @@
     <string name="Date">date</string>
     <string name="Email">Email</string>
     <string name="Service">service</string>
-    <string name="fragment_lista_appoitment">Apointment</string>
+    <string name="fragment_lista_appoitment">Apointments</string>
     <string name="eliminar_appointment">Eliminar Appointment</string>
     <string name="eliminar_client">Eliminar Client</string>
     <string name="eliminar_service">Eliminar Service</string>
@@ -161,7 +161,6 @@
     <string name="appointment_name_obrigatorio">appointment name obrigatorio</string>
     <string name="time_obrigatorio">time obrigatorio</string>
     <string name="day_obrigatorio">day obrigatorio</string>
-    <string name="client_obrigatoria">client obrigatoria</string>
     <string name="Appointment_guardado_sucesso">Appointment guardado com sucesso</string>
     <string name="erro_guardar_appointment_name">erro ao guardar appointment name</string>
     <string name="eliminar_appointment_label">Eliminar Appointment</string>
@@ -182,4 +181,5 @@
     <string name="eliminar_client_label">Eliminar Client</string>
     <string name="erro_eliminar_client">erro ao eliminar client</string>
     <string name="erro_eliminar_appointment">erro ao eliminar appointment</string>
+    <string name="client_obrigatoria">client obrigatoria</string>
 </resources>

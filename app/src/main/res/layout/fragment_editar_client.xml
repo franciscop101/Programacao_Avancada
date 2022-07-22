@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
+            android:inputType="textPersonName"
             android:textColorHint="#757575"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
@@ -33,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:textColorHint="#757575"
                 tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
@@ -47,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Email"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="#757575"
                     tools:ignore="TextContrastCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
