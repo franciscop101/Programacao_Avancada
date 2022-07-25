@@ -77,7 +77,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
         CursorLoader(
             requireContext(),
-            ContentProviderAppointment.ENDERECO_APPOINTEMTS,
+            ContentProviderAppointment.ENDERECO_CLIENTS,
             TabelaBDClient.TODAS_COLUNAS,
             null,
             null,
@@ -207,7 +207,7 @@ class FragmentEditarAppointment : Fragment(), LoaderManager.LoaderCallbacks<Curs
             binding.editTextDate.requestFocus()
             return
         }
-        val date = stime.toLong()
+        val date = sdate.toLong()
 
         val idClient = binding.spinnerClient.selectedItemId
         if (idClient == Spinner.INVALID_ROW_ID) {

@@ -15,10 +15,10 @@ class BDOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,null, VER
         requireNotNull(db)
 
 
-        TabelaBDClient(db).cria()
+
         TabelaBDAppointement(db).cria()
         TabelaBDService(db).cria()
-
+        TabelaBDClient(db).cria()
 
 
     }

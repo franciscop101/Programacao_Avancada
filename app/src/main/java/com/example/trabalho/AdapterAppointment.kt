@@ -19,7 +19,7 @@ class AdapterAppointment (val fragment: FragmentListaAppointment) : RecyclerView
     var viewHolderSelecionado : ViewHolderAppointment? = null
 
     inner class ViewHolderAppointment(itemAppointment: View) : RecyclerView.ViewHolder(itemAppointment), View.OnClickListener {
-        val textViewNameAppontments = itemAppointment.findViewById<TextView>(R.id.textViewNameAppontments)
+        val textViewNameAppontments = itemAppointment.findViewById<TextView>(R.id.textViewNameAppontment)
         val textViewTime = itemAppointment.findViewById<TextView>(R.id.textViewTime)
         val textViewDate = itemAppointment.findViewById<TextView>(R.id.textViewDate)
         val textViewClient = itemAppointment.findViewById<TextView>(R.id.textViewClient)

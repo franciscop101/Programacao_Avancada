@@ -120,7 +120,7 @@
     <string name="service">service</string>
     <string name="hours">hours</string>
     <string name="phone">phone</string>
-    <string name="day">day</string>
+    <string name="day">day/month/year</string>
     <string name="back">back</string>
     <string name="Name">Name</string>
     <string name="inserir">Inserir</string>
